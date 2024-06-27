@@ -47,7 +47,7 @@
 （1.11版本，非最终版）
 
 ![UI](https://i-blog.csdnimg.cn/direct/559a26842a10439c9503802724350f71.png#pic_center)
-![UI](https://img-home.csdnimg.cn/images/20230724024159.png?origin_url=C%3A%5CUsers%5CMSI-NB%5CDesktop%5C%E7%95%8C%E9%9D%A2UI.png&pos_id=img-4QIycWOt-1719488763798)包含基础的==增删改查功能==，==正序倒序的排序功能==，以及==搜索排查功能==，==切换背景功能 ==，==AI总结功能==（连夜赶制中）
+包含基础的== 增删改查功能 ==，== 正序倒序的排序功能 ==，以及== 搜索排查功能 ==，== 切换背景功能 ==，== AI总结功能 ==（连夜赶制中）
 
 
 ----
