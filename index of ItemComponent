@@ -1,0 +1,75 @@
+//列表项的子组件
+
+@Component
+export struct  ItemComponent{
+  private index:number = 0;
+  private name: string = "";
+  private vote:string = "";
+
+  @State
+  isChoice: boolean = false ; // 该行是否选中，选中颜色自动变化
+  build() {
+    Row() {
+      //三部分
+      //第一部分：排名，做判断的渲染——>写一个判断的函数
+      Column() {
+        if (this.isCircleText()) { //圆形文本框 ，要单独创建，通过arkTS内置组件画画出来的，通过构建函数创建圆形文本框
+          this.CreateCircleText(this.index)
+        } else { //普通文本框
+          Text(this.index.toString())
+            .lineHeight(24)
+            .textAlign(TextAlign.Center)//????没明白
+            .fontSize(16)
+            .fontWeight(400)
+            .width(24)
+
+        }
+      }
+      .width('20%')
+      .alignItems(HorizontalAlign.Start)  //对齐方式  ????
+
+      //第二部分
+      Text(this.name)
+        .width('50%')
+        .fontSize(18)
+        .fontWeight(400)
+        .fontColor(this.isChoice ? Color.Blue :"#182431")
+
+      //第三部分
+      Text(this.vote)
+        .width('50%')
+        .fontSize(16)
+        .fontWeight(400)
+        .fontColor(this.isChoice ? Color.Blue :"#182431")
+
+    }
+    .width('100%')
+    .height(48)
+    .onClick(()=>{
+      //选中该行之后颜色变化
+      //通过状态变量控制变化
+      this.isChoice = ! this.isChoice
+    })
+
+  }
+  //构建函数
+  @Builder
+  CreateCircleText(index: number){
+    //构建圆形文本框的组件的构建函数
+    Row(){ //Row负责画圆圈
+      Text(this.index.toString()) //文本框，显示当前的排名
+        .fontWeight(400)
+        .fontSize(16)
+        .fontColor(Color.White)
+    }
+    .justifyContent(FlexAlign.Center)    //文本居中
+    .borderRadius(24)
+    .size({width:24,height:24})       //画圆圈 ？？？？
+    .backgroundColor(Color.Blue)
+  }
+
+  isCircleText():boolean {
+    //判断排名是否为前三名;
+    return this.index === 1 || this.index === 2 || this.index === 3  //===还要判断类型是否相等
+  }
+}

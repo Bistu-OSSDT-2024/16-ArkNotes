@@ -1,0 +1,62 @@
+//水果排行榜的APP标题组件
+//导入，从鸿蒙内置的通用库中导入，有APP，context上下文对象
+import AppContext from '@ohos.app.ability.common' ;
+@Component
+export struct TitleComponent{
+  //刷新数据，和父组件有关联——>共享变量，在子组件定义一个以link装饰器装饰的变量
+  @Link
+  isRefreshData : boolean ;  // 定义一个共享变量，是否刷新数据
+  @State
+  title : string = ''  // 定义一个标题状态变量
+  build() {
+    Row(){
+      // 分为两部分
+      //第一部分：由两部分组成：1.返回图标。2.标题（动态标题设为状态变量）
+      Row(){ // 返回图标
+        Image($r('app.media.back'))  //返回图标，后缀不用管，可点击
+          .height(21)
+          .width(21)
+          .margin({right : 18})
+          .onClick(()=>{
+            //退出整个APP,上下文环境对象
+            let context = getContext(this) as AppContext.UIAbilityContext   // 类型转化：as  ；获得上下文对象
+            context.terminateSelf()  //Self：自己是个组件 ；关闭自己当前UI组件（退出）
+
+          })
+        Text(this.title) //动态的
+          .fontSize(20)
+      }
+      .width('50%')
+      .height('100%')
+      .justifyContent(FlexAlign.Start)
+
+      //第二部分
+      Row(){
+        Image($r('app.media.loading'))  // loading：刷新按钮图标
+          .width(22)
+          .height(22)
+          .onClick(()=>{
+            //刷新数据，和父组件有关联——>共享变量，在子组件定义一个以link装饰器装饰的变量
+            this.isRefreshData = ! this.isRefreshData
+            //因为共享变量，父组件会改变，数据局部组件刷新
+          })
+
+      }
+      .width('50%')
+      .height('100%')
+      .justifyContent(FlexAlign.End)
+
+    }
+    .width('100%')
+    .height('10%')
+    .padding({left:26,right:26})  // 内边距
+    .margin({top:10})
+    .justifyContent(FlexAlign.SpaceAround)
+  }
+}
+
+
+
+
+
+
