@@ -1,0 +1,31 @@
+//表头组件
+
+@Component
+export struct  TableHeaderComponent{
+
+  paddingValue:Padding | Length = 0 ;   //联合，或者符合：  | ;
+  widthValue:Length = 0 ; //表头组件占用的宽度
+
+  build() {
+    Row(){
+      Text('排名')
+        .fontSize(16)
+        .width('20%')
+        .fontWeight(400)
+        .fontColor('#989A9C')
+      Text('种类')
+        .fontSize(16)
+        .width('50%')
+        .fontWeight(400)
+        .fontColor('#989A9C')
+      Text('得票数')
+        .fontSize(16)
+        .width('30%')
+        .fontWeight(400)
+        .fontColor('#989A9C')
+
+    }
+    .width(this.widthValue) //通过父组件传过来
+    .padding(this.paddingValue)  //内边距
+  }
+}
