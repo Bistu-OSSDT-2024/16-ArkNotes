@@ -1,6 +1,6 @@
 import { TeskDataModel }  from './Models'
 import ItemComponent from './ItemComponent'
-//需要用到子组件，和其他里面的数据
+//需要用到子组件，和其他里面的数
 
 @Entry
 @Component
