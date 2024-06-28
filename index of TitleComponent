@@ -3,7 +3,7 @@
 import AppContext from '@ohos.app.ability.common' ;
 @Component
 export struct TitleComponent{
-  //刷新数据，和父组件有关联——>共享变量，在子组件定义一个以link装饰器装饰的变量
+  //刷新数据，和父组件有关联——>共享变量，在子组件定义一个以link装饰器装饰的变量；
   @Link
   isRefreshData : boolean ;  // 定义一个共享变量，是否刷新数据
   @State
