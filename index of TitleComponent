@@ -10,7 +10,7 @@ export struct TitleComponent{
   title : string = ''  // 定义一个标题状态变量
   build() {
     Row(){
-      // 分为两部分
+      // 分为两部
       //第一部分：由两部分组成：1.返回图标。2.标题（动态标题设为状态变量）
       Row(){ // 返回图标
         Image($r('app.media.back'))  //返回图标，后缀不用管，可点击
