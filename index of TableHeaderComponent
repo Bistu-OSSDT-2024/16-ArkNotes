@@ -25,7 +25,7 @@ export struct  TableHeaderComponent{
         .fontColor('#989A9C')
 
     }
-    .width(this.widthValue) //通过父组件传过来
+    .width(this.widthValue) //通过父组件传过来；
     .padding(this.paddingValue)  //内边距
   }
 }
