@@ -7,7 +7,7 @@ export struct  ItemComponent{
   private vote:string = "";
 
   @State
-  isChoice: boolean = false ; // 该行是否选中，选中颜色自动变化
+  isChoice: boolean = false ; // 该行是否选中，选中颜色自动变化；
   build() {
     Row() {
       //三部分
